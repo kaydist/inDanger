@@ -1,0 +1,259 @@
+$primary_color1: white;
+$primary_color2: rgb(109, 109, 109);
+$font1: 'Courier New', Courier, monospace;
+$font2: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+$font-size:(
+    "x-large": 3rem,
+    "large": 1.5rem,
+    "regular": 1rem
+);
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin outline{
+    outline: none;
+
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    font-size: map-get($font-size, x-large );
+    font-family: $font2;
+}
+
+a{
+    text-decoration: none;
+    color: $primary_color2;
+}
+
+p{
+    overflow-wrap: break-word;
+    font-size: map-get($font-size, regular );
+    font-family: $font1;
+}
+
+nav{
+    display: inline-block;
+    position: fixed;
+    height: 100%;
+    width: 10vw;
+    background-color: black;
+    color: $primary_color1;
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    font-family: $font2;
+    @include flex-center();
+    z-index: 100;
+    
+
+    ul{
+        list-style-type: none;
+        flex-grow: 0.6;
+        
+        
+        li{
+            padding: 10% 0;
+            display: block;
+            @include flex-center();justify-content: flex-start;
+            color: $primary_color2;
+            font-size: map-get($font-size, regular );
+            
+            .active{
+                color: $primary_color1;
+            }
+
+            a:hover{
+                color: white;
+                animation: blinker 1s infinite;
+            }
+            
+            @keyframes blinker {
+                0% {color: $primary_color1}
+                50% {color: $primary_color2}
+                100% {color: $primary_color1}
+            }
+        }
+    }
+}
+
+.icon{
+    font-weight: 1000;
+}
+
+.number{
+    font-family: $font1;
+    span{  
+        font-size: map-get($font-size, large )
+    }
+    
+}
+
+.content-container{
+    width: 230vw;
+    height: 100vh;
+    margin-left: 10%;
+    overflow:hidden;
+    
+
+    .flex{
+        display: flex;
+        height: 100%;
+        
+    
+    .content{@include outline();
+        content: "";
+        width: 20%;
+        height: 100%;
+        display: inline-block;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: grayscale(1);
+        cursor: pointer;
+        
+
+        section{
+            @include outline();
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            right: 5%;
+            height: 20%;
+            color: $primary_color1;
+            opacity: 0.5;
+            padding: 0;
+
+           
+        }
+
+        // this gives the line that is displayed when not active. it is attached to the section container
+        section::after{
+            position: absolute;
+            top: 100%;
+            content: "";
+            width: 30%;
+            border: 1px solid white;
+
+        }
+
+        article{
+            position: relative;
+            margin-top: 10px;
+            padding: 10px 0;
+
+            p{
+                opacity: 0;
+                transition: .5s ease-in-out;
+            }
+        }
+
+        // this removes the line that is displayed when active. it is attached to the article container
+
+        article::before{
+            position: absolute;
+            top: 100%;
+            content: "";
+            width: 30%;
+            border: 1px solid white;
+            display: none;
+        } 
+    
+    }
+
+
+    .content-active{
+        width: 50%;
+        filter: grayscale(0);
+        cursor: default;
+        transition: width .5s ease-in-out;
+
+        section{
+            opacity: 1;
+        }
+
+        // this removes the line that is displayed when not active. it is attached to the section container
+        section::after{
+            display: none;
+        }
+        
+
+        article{
+            p{
+                opacity: 1;
+            }
+        }
+
+        // this gives the line that is displayed when  active. it is attached to the article container
+
+        article::before{
+            top: 0;
+            display: block;
+        } 
+
+
+    }
+
+    
+}
+
+}
+
+// find a way to hide the scroll bar
+
+
+.img-container{
+    width: 100%;
+    height: 100%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+#animal1{
+    background-image: url(../images/elephant1.jpg);
+}
+#animal2{
+    background-image: url(../images/panda1.jpg);
+    
+}
+#animal3{
+    background-image: url(../images/tiger1.jpg);
+}
+#animal4{
+    background-image: url(../images/giraffe.jpg);
+    
+}
+#animal5{
+    background-image: url(../images/orangutan1.jpg);
+}
+#animal6{
+    background-image: url(../images/polar-bear1.jpg);
+}
+#animal7{
+    background-image: url(../images/jaguar1.jpg);
+}
+#animal8{
+    background-image: url(../images/bonobo.jfif);
+    
+}
+#animal9{
+    background-image: url(../images/sea-turtle1.jpg);
+}
+#animal10{
+    background-image: url(../images/rhino1.jpg);
+}
+
