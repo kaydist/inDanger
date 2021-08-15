@@ -123,7 +123,7 @@ nav ul li a:hover {
   width: 230vw;
   height: 98vh;
   margin-left: 10%;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .content-container .flex {
