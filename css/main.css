@@ -1,6 +1,5 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -28,47 +27,28 @@ nav {
   width: 10vw;
   background-color: black;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 20%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   z-index: 100;
 }
 
 nav ul {
   list-style-type: none;
-  -webkit-box-flex: 0.6;
-      -ms-flex-positive: 0.6;
-          flex-grow: 0.6;
+  flex-grow: 0.6;
 }
 
 nav ul li {
   padding: 10% 0;
   display: block;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   color: #6d6d6d;
   font-size: 1rem;
 }
@@ -79,20 +59,7 @@ nav ul li .active {
 
 nav ul li a:hover {
   color: white;
-  -webkit-animation: blinker 1s infinite;
-          animation: blinker 1s infinite;
-}
-
-@-webkit-keyframes blinker {
-  0% {
-    color: white;
-  }
-  50% {
-    color: #6d6d6d;
-  }
-  100% {
-    color: white;
-  }
+  animation: blinker 1s infinite;
 }
 
 @keyframes blinker {
@@ -107,7 +74,7 @@ nav ul li a:hover {
   }
 }
 
-.icon {
+.logo {
   font-weight: 1000;
 }
 
@@ -127,8 +94,6 @@ nav ul li a:hover {
 }
 
 .content-container .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
 }
@@ -143,8 +108,7 @@ nav ul li a:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
+  filter: grayscale(1);
   cursor: pointer;
 }
 
@@ -176,7 +140,6 @@ nav ul li a:hover {
 
 .content-container .flex .content article p {
   opacity: 0;
-  -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
 }
 
@@ -191,10 +154,8 @@ nav ul li a:hover {
 
 .content-container .flex .content-active {
   width: 50%;
-  -webkit-filter: grayscale(0.3);
-          filter: grayscale(0.3);
+  filter: grayscale(0);
   cursor: default;
-  -webkit-transition: width .5s ease-in-out;
   transition: width .5s ease-in-out;
 }
 
@@ -213,6 +174,13 @@ nav ul li a:hover {
 .content-container .flex .content-active article::before {
   top: 0;
   display: block;
+}
+
+.menu-button {
+  width: fit-content;
+  padding: 20px;
+  display: none;
+  background-color: white;
 }
 
 .img-container {
@@ -263,5 +231,70 @@ img {
 
 #animal10 {
   background-image: url(../images/rhino1.jpg);
+}
+
+@media screen and (max-width: 786px) {
+  .content-container {
+    width: 100%;
+    height: 500vh;
+    margin-left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .content-container .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .content-container .flex .content {
+    outline: none;
+    content: "";
+    width: 100%;
+    height: 60vh;
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(1);
+    cursor: pointer;
+  }
+  .content-container .flex .content section {
+    outline: none;
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+    height: 40%;
+    color: white;
+    opacity: 0.5;
+    padding: 0;
+  }
+  .content-container .flex .content-active {
+    filter: grayscale(0);
+    cursor: default;
+    transition: width .5s ease-in-out;
+  }
+  nav {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 100;
+  }
+  nav .logo {
+    float: left;
+  }
+  nav ul {
+    display: none;
+  }
+  nav .number {
+    display: none;
+  }
+  nav .menu-button {
+    display: flex;
+    float: right;
+  }
 }
 /*# sourceMappingURL=main.css.map */
