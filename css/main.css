@@ -25,7 +25,7 @@ nav {
   position: fixed;
   height: 100vh;
   width: 10vw;
-  background-color: black;
+  background-color: #3a3a3a;
   color: white;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,7 @@ nav ul li a:hover {
 
 .logo {
   font-weight: 1000;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .number {
@@ -84,6 +85,76 @@ nav ul li a:hover {
 
 .number span {
   font-size: 1.5rem;
+}
+
+.MobileNav-container {
+  width: 80%;
+  height: 100vh;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  background-color: #3a3a3a;
+  color: white;
+  margin: 0;
+  position: fixed;
+  visibility: 1;
+  opacity: 1;
+  top: 0vh;
+  z-index: -10;
+}
+
+.MobileNav-container a {
+  color: white;
+}
+
+.MobileNav-container .MobileNav-content {
+  padding: 3% 3%;
+}
+
+.MobileNav-container .MobileNav-text {
+  width: 80%;
+  padding: 5% 5%;
+}
+
+.MobileNav-container .MobileNav-text ul {
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+.MobileNav-container .MobileNav-text ul li {
+  padding: 5%;
+}
+
+.MobileNav-container .MobileNav-text ul a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.MobileNav-container .MobileNav-text ul a:before {
+  width: 0;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  content: "";
+  transition: .3s;
+}
+
+.MobileNav-container .MobileNav-text ul a:hover:before {
+  width: 100%;
+}
+
+.MobileNav-container .logo {
+  margin: 10% 0;
+  font-size: 3rem;
+}
+
+.MobileNav-container-open {
+  visibility: 1;
+  top: 0vh;
+  z-index: 1000;
+  opacity: 1;
 }
 
 .content-container {
@@ -154,7 +225,7 @@ nav ul li a:hover {
 
 .content-container .flex .content-active {
   width: 50%;
-  filter: grayscale(0);
+  filter: grayscale(0.3);
   cursor: default;
   transition: width .5s ease-in-out;
 }
@@ -273,6 +344,9 @@ img {
     filter: grayscale(0);
     cursor: default;
     transition: width .5s ease-in-out;
+  }
+  .content-container .flex .content-active section {
+    opacity: 1;
   }
   nav {
     position: fixed;

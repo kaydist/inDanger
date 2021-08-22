@@ -1,5 +1,7 @@
 const flex = document.querySelector(".flex");
 const content = document.querySelectorAll(".content");
+const menu = document.querySelector(".menu-button");
+const mobileNav = document.querySelector(".MobileNav-container")
 
 
 flex.onclick = e => {
@@ -15,4 +17,8 @@ flex.onclick = e => {
     document.getElementById("present-number").textContent = id
 }
     
+}
+
+menu.onclick = () =>{
+  mobileNav.classList.toggle("MobileNav-container-open")
 }
