@@ -96,10 +96,10 @@ nav ul li a:hover {
   color: white;
   margin: 0;
   position: fixed;
-  visibility: 1;
-  opacity: 1;
-  top: 0vh;
-  z-index: -10;
+  top: 0;
+  left: -100vw;
+  z-index: 1000;
+  transition: left .3s ease-in-out;
 }
 
 .MobileNav-container a {
@@ -151,10 +151,9 @@ nav ul li a:hover {
 }
 
 .MobileNav-container-open {
-  visibility: 1;
   top: 0vh;
-  z-index: 1000;
-  opacity: 1;
+  left: 0vw;
+  transition: left .3s ease-out;
 }
 
 .content-container {

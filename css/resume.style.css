@@ -15,6 +15,7 @@ h1 {
 
 .section {
   width: 100%;
+  display: block;
 }
 
 .body {
@@ -89,7 +90,7 @@ h1 {
   list-style-type: none;
 }
 
-img {
+.img-container img {
   max-width: 100%;
   height: 100%;
   position: absolute;
@@ -98,6 +99,44 @@ img {
   left: 200px;
   right: 0;
   display: none;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.jobGallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+
+.jobGallery .jobContainer {
+  width: 48%;
+  height: 48vh;
+  position: relative;
+}
+
+.jobDescription {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #2B2741;
+  color: #CCCCCC;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jobContainer:hover > .jobDescription {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -116,6 +155,20 @@ img {
   }
   .skillsection .stack-logo {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .jobGallery {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .jobGallery .jobContainer {
+    width: 100%;
+    height: 48vh;
+    position: relative;
   }
 }
 /*# sourceMappingURL=resume.style.css.map */

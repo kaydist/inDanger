@@ -42,4 +42,10 @@
   display: inline-flex;
   padding: 10px;
 }
+
+.hng-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*# sourceMappingURL=contact.style.css.map */
